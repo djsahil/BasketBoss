@@ -1,16 +1,26 @@
 # BasketBoss
 
+## Authors
+Sahil Shah, Vignesh Kumar, & Asad Qureshi
+
 ## Description
-BasketBoss is a python based portfolio analysis API. Given a basket of stocks for investment purposes, our API will perform quantitative analysis to gain insight on various metrics. The primary functionality is to ultimately advise on potential positions via signals by incorporating a diverse set of strategies.
+BasketBoss is a python based portfolio analysis API. Given a basket of stocks for investment purposes, our API will perform quantitative analysis to gain insight on various metrics and ultimately advise on potential positions via signals by incorporating a diverse set of strategies. Functionality can be divided into 2 categories
+
+1. Analysis & Metrics
+2. Trading Strategies & Signals
 
 ### Analysis & Metrics
 
 **1. Fundamental Analysis:**
 Analyze the fundamental factors of each company, such as earnings, revenue growth, debt levels, and valuation metrics like P/E ratios. Understanding the financial health of each company is essential for long-term investment decisions.
 
+Functionality: 
+
+- Data Retrieval: 
+1. Use yfinance API for Yahoo Finance stock info
+	a. Extract key fundamental metrics for analysis
 TODO:
 
-- Data Retrieval: Use Yahoo Finance for financial data. 
 - Data Analysis: Use a library like pandas for handling and analyzing the data. Calculate important financial metrics like earnings, revenue growth, debt levels, and valuation ratios.
 
 
@@ -26,7 +36,9 @@ Investigate the correlation between the stocks in the basket. Diversification is
 
 TODO:
 
-- Explore ways to determine stock correlation
+- Explore ways to determine stock correlation - [Polygon.io](https://polygon.io/blog/finding-correlation-between-stocks)
+
+
 
 ### Trading Strategies & Signals
 
