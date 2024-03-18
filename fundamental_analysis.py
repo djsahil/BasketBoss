@@ -10,7 +10,8 @@ def style_fundamentals_dataframe(styler):
     # Column formatting
     styler.format({'Forward Earnings Per Share (EPS)': '${:.2f}', 'Forward Price to Earnings Ratio (P/E)': '{:.2f}',
                    'Price/Earnings-to-Growth Ratio (PEG)': '{:.2f}',
-                   'Free Cash Flow Yield (FCFY)': '{:.2f}', 'Price to Book Ratio (P/B)': '{:.2f}', 'Return on Equity (ROE)': '{:.2f}',
+                   'Free Cash Flow Yield (FCFY)': '{:.2f}', 'Price to Book Ratio (P/B)': '{:.2f}',
+                   'Return on Equity (ROE)': '{:.2f}',
                    '12-Month Trailing Price-to-Sales Ratio (P/S)': '{:.2f}',
                    'Dividend Payout Ratio (DPR)': '{:.2f}', 'Dividend Yield (DY)': '{:.2f}%',
                    'Current Ratio (CR)': '{:.2f}', 'Beta': '{:.2f}', '52-Week Low': '${:.2f}',
@@ -37,26 +38,8 @@ def style_fundamentals_dataframe(styler):
     styler.set_properties(subset=['Symbol', 'Name', 'Industry'], **{'text-align': 'left'})
     return styler
 
+
 def fetch_stock_info(stocks):
-    stock_data = {
-        'Symbol': [],
-        'Name': [],
-        'Industry': [],
-        'Forward Earnings Per Share (EPS)': [],
-        'Forward Price to Earnings Ratio (P/E)': [],
-        'Price/Earnings-to-Growth Ratio (PEG)': [],
-        'Price to Book Ratio (P/B)': [],
-        'Return on Equity (ROE)': [],
-        '12-Month Trailing Price-to-Sales Ratio (P/S)': [],
-        'Dividend Payout Ratio (DPR)': [],
-        'Dividend Yield (DY)': [],
-        'Current Ratio (CR)': [],
-        'Free Cash Flow Yield (FCFY)': [],
-        'Beta': [],
-        'Price': [],
-        '52-Week Low': [],
-        '52-Week High': []
-    }
 
     key_yfinancekey_map = {
         'Symbol': 'symbol',
@@ -78,31 +61,35 @@ def fetch_stock_info(stocks):
         '52-Week High': 'fiftyTwoWeekHigh'
     }
 
-    key_list = stock_data.keys()
-
+    key_list = key_yfinancekey_map.keys()
+    stock_data = {}
 
     for ticker in stocks:
         # GET Yahoo Finance TICKER INFO
         yfTicker = yfinance.Ticker(ticker)
         stock_info = yfTicker.info
 
-
         for stock_data_key in key_list:
             try:
                 stock_data[stock_data_key].append(stock_info[key_yfinancekey_map[stock_data_key]])
             except KeyError:
-                stock_data[stock_data_key].append(numpy.nan)
+                if stock_data_key not in stock_data:  # First list entry
+                    stock_data[stock_data_key] = []
+                    stock_data[stock_data_key].append(stock_info[key_yfinancekey_map[stock_data_key]])
+                else:   # Couldn't fetch data for this stat for this ticker
+                    stock_data[stock_data_key].append(numpy.nan)
 
     # Return a DF using the stock_data dictionary
     return pandas.DataFrame(stock_data)
 
 
-stocks = ['AAPL', 'GS', 'IBM', 'INTC', 'JNJ', 'JPM', 'MS', 'TRV', 'GOOG']
+stocks = ['AAPL', 'GS', 'IBM', 'INTC', 'JNJ', 'JPM', 'MS', 'TRV', 'GOOG', 'TSLA']
 stock_info_dataframe = fetch_stock_info(stocks)
-# print(stock_info_dataframe)
+print(stock_info_dataframe)
 
 # Style Dataframe
-stock_info_dataframe.style.pipe(style_fundamentals_dataframe).set_caption('Fundamental Analysis Indicators').set_table_styles(
+stock_info_dataframe.style.pipe(style_fundamentals_dataframe).set_caption(
+    'Fundamental Analysis Indicators').set_table_styles(
     [{
         'selector': 'th.col_heading',
         'props': 'text-align: center'
