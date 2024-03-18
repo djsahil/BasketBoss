@@ -11,28 +11,28 @@ warnings.simplefilter(action='ignore', category=FutureWarning)
 
 def make_pretty(styler):
     # Column formatting
-    styler.format({'Forward Earnings Per Share (EPS)': '${:.2f}', 'P/E (fwd)': '{:.2f}', 'PEG': '{:.2f}',
-                   'FCFY': '{:.2f}%', 'PB' : '{:.2f}', 'ROE' : '{:.2f}', 'P/S (trail)': '{:.2f}',
-                   'DPR': '{:.2f}%', 'DY': '{:.2f}%', 'CR' : '{:.2f}', 'Beta': '{:.2f}', '52w Low': '${:.2f}',
-                   'Price': '${:.2f}', '52w High': '${:.2f}', '52w Range': '{:.2f}%'
+    styler.format({'Forward Earnings Per Share (EPS)': '${:.2f}', 'Forward Price to Earnings Ratio (P/E)': '{:.2f}', 'Price/Earnings-to-Growth Ratio (PEG)': '{:.2f}',
+                   'FCFY': '{:.2f}%', 'Price to Book Ratio (P/B)' : '{:.2f}', 'Return on Equity (ROE)' : '{:.2f}', '12-Month Trailing Price-to-Sales Ratio (P/S)': '{:.2f}',
+                   'Dividend Payout Ratio (DPR)': '{:.2f}%', 'Dividend Yield (DY)': '{:.2f}%', 'Current Ratio (CR)' : '{:.2f}', 'Beta': '{:.2f}', '52-Week Low': '${:.2f}',
+                   'Price': '${:.2f}', '52-Week High': '${:.2f}', '52w Range': '{:.2f}%'
                   })
     # Set the bar visualization
-    styler.bar(subset = ['52w Range'], align = "mid", color = ["salmon", "cornflowerblue"])
+    #styler.bar(subset = ['52w Range'], align = "mid", color = ["salmon", "cornflowerblue"])
 
     # Grid
     styler.set_properties(**{'border': '0.1px solid black'})
 
     # Set background gradients
     styler.background_gradient(subset=['Forward Earnings Per Share (EPS)'], cmap='Greens')
-    styler.background_gradient(subset=['P/E (fwd)'], cmap='Greens')
-    styler.background_gradient(subset=['PEG'], cmap='Greens')
-    styler.background_gradient(subset=['FCFY'], cmap='Greens')
-    styler.background_gradient(subset=['PB'], cmap='Greens')
-    styler.background_gradient(subset=['ROE'], cmap='Greens')
-    styler.background_gradient(subset=['P/S (trail)'], cmap='Greens')
-    styler.background_gradient(subset=['DPR'], cmap='Greens')
-    styler.background_gradient(subset=['DY'], cmap='Greens')
-    styler.background_gradient(subset=['CR'], cmap='Greens')
+    styler.background_gradient(subset=['Forward Price to Earnings Ratio (P/E)'], cmap='Greens')
+    styler.background_gradient(subset=['Price/Earnings-to-Growth Ratio (PEG)'], cmap='Greens')
+    #styler.background_gradient(subset=['FCFY'], cmap='Greens')
+    styler.background_gradient(subset=['Price to Book Ratio (P/B)'], cmap='Greens')
+    styler.background_gradient(subset=['Return on Equity (ROE)'], cmap='Greens')
+    styler.background_gradient(subset=['12-Month Trailing Price-to-Sales Ratio (P/S)'], cmap='Greens')
+    styler.background_gradient(subset=['Dividend Payout Ratio (DPR)'], cmap='Greens')
+    styler.background_gradient(subset=['Dividend Yield (DY)'], cmap='Greens')
+    #styler.background_gradient(subset=['Current Ratio (CR)'], cmap='Greens')
 
     # No index
     styler.hide(axis='index')
@@ -132,13 +132,13 @@ def fetch_stock_info(stocks):
 
 stocks = ['AAPL', 'GS', 'IBM', 'INTC', 'JNJ', 'JPM', 'MS', 'TRV']
 stock_info_dataframe = fetch_stock_info(stocks)
-print(stock_info_dataframe)
+#print(stock_info_dataframe)
 
 # Initialize tool tip data - each column is set to '' for each row
 tt_data = [['' for x in range(len(stock_info_dataframe.columns))] for y in range(len(stock_info_dataframe))]
 
 # Gather tool tip data for indicators
-populate_tt(stock_info_dataframe, tt_data, 'Symbol')
+#populate_tt(stock_info_dataframe, tt_data, 'Symbol')
 #populate_tt(stock_info_dataframe, tt_data, 'Name')
 #populate_tt(stock_info_dataframe, tt_data, 'Industry')
 
