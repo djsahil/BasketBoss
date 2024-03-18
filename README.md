@@ -14,30 +14,31 @@ BasketBoss is a python based portfolio analysis API. Given a basket of stocks fo
 **1. Fundamental Analysis:**
 Analyze the fundamental factors of each company, such as earnings, revenue growth, debt levels, and valuation metrics like P/E ratios. Understanding the financial health of each company is essential for long-term investment decisions.
 
-Functionality: 
+	Functionality: 
 
-- Data Retrieval: 
-1. Use yfinance API for Yahoo Finance stock info
-	a. Extract key fundamental metrics for analysis
-TODO:
+	- Data Retrieval (DONE): Use yfinance API for Yahoo Finance stock info and Extract key fundamental metrics for analysis
+	- Data Analysis (DONE): Use a library like pandas for handling and analyzing the data. Calculate important financial metrics like earnings, revenue growth, debt levels, and valuation ratios. 
+	- Presentation (DONE): Present stock basket fundamental analysis (key metrics & ratios along with color gradient ranking for comparison)
 
-- Data Analysis: Use a library like pandas for handling and analyzing the data. Calculate important financial metrics like earnings, revenue growth, debt levels, and valuation ratios.
+	Scripts:
+
+	fundamental_analysis.py
+	fundamental_analysis_notebook.ipynb
 
 
 **2. Historical Performance:**
 Examine the historical performance of each stock in the basket. Calculate metrics such as historical returns, volatility, and drawdowns. This can help identify how the stocks have behaved in different market conditions.
 
-TODO:
+	TODO:
 
-- Data Analysis: With the help of the yfinance library, calculate metrics such as historical returns, volatility, and drawdowns
+	- Data Analysis: With the help of the yfinance library, calculate metrics such as historical returns, volatility, and drawdowns
 
 **3. Correlation and Diversification**
 Investigate the correlation between the stocks in the basket. Diversification is crucial for managing risk. If the stocks move in sync, diversification benefits diminish. Analyzing correlation helps in constructing a well-balanced portfolio.
 
-TODO:
+	TODO:
 
-- Explore ways to determine stock correlation - [Polygon.io](https://polygon.io/blog/finding-correlation-between-stocks)
-
+	- Explore ways to determine stock correlation - [Polygon.io](https://polygon.io/blog/finding-correlation-between-stocks)
 
 
 ### Trading Strategies & Signals
@@ -57,9 +58,9 @@ Analyze macroeconomic indicators and trends. Factors like interest rates, inflat
 **6. News and Sentiment Analysis:**
 Analyze recent news and sentiment surrounding the stocks. Market sentiment can influence short-term price movements. Tools that analyze news sentiment or social media chatter can provide additional insights (tbd).
 
-TODO:
+	TODO:
 
-- Find open source news sentiment api
+	- Find open source news sentiment api
 
 ### Risk Management
 7. Assess the overall risk of the portfolio. This involves understanding the risk-return tradeoff and ensuring that the portfolio aligns with your risk tolerance and investment goals.
