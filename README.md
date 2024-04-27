@@ -29,9 +29,15 @@ Analyze the fundamental factors of each company, such as earnings, revenue growt
 **2. Historical Performance:**
 Examine the historical performance of each stock in the basket. Calculate metrics such as historical returns, volatility, and drawdowns. This can help identify how the stocks have behaved in different market conditions.
 
-	TODO:
+	Functionality:
 
 	- Data Analysis: With the help of the yfinance library, calculate metrics such as historical returns, volatility, and drawdowns
+	- Portfolio Optimization: 
+
+	Scripts:
+
+	historical_analysis_optimization.py
+	historical_analysis_optimization.ipynb
 
 **3. Correlation and Diversification**
 Investigate the correlation between the stocks in the basket. Diversification is crucial for managing risk. If the stocks move in sync, diversification benefits diminish. Analyzing correlation helps in constructing a well-balanced portfolio.
