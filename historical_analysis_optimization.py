@@ -66,7 +66,7 @@ for ticker in stocks:
 
 # Create a DataFrame to display results
 metrics_df = pandas.DataFrame(metrics_data)
-print(metrics_df)
+metrics_df
 
 
 df = yfinance.download(stocks, start=start_date)["Close"]
@@ -85,21 +85,7 @@ weights = efficient_frontier.max_sharpe()
 cleaned_weights = efficient_frontier.clean_weights()
 
 cleaned_weights_df = pandas.DataFrame([cleaned_weights])
-print(cleaned_weights_df)
-
-# Style Dataframe
-(cleaned_weights_df.style.pipe(style_basic)
-    .set_caption('Fundamental Analysis Indicators')
-    .set_table_styles(
-    [{
-        'selector': 'th.col_heading',
-        'props': 'text-align: center'
-    }, {
-        'selector': 'caption',
-        'props': [('text-align', 'center'),
-                  ('font-size', '14pt'),
-                  ('font-weight', 'bold')]}
-    ]))
+cleaned_weights_df
 efficient_frontier.portfolio_performance(verbose=True)
 
 # get the discrete allocation of each share per stock
@@ -111,3 +97,17 @@ da = DiscreteAllocation(weights, latest_prices, total_portfolio_value=my_budget)
 allocation, leftover = da.lp_portfolio()
 print("Discrete allocation:", allocation)
 print("Funds Remaining:", "$", leftover)
+
+# Style Dataframe
+(metrics_df.style.pipe(style_basic)
+    .set_caption('Historical Performance Metrics')
+    .set_table_styles(
+    [{
+        'selector': 'th.col_heading',
+        'props': 'text-align: center'
+    }, {
+        'selector': 'caption',
+        'props': [('text-align', 'center'),
+                  ('font-size', '14pt'),
+                  ('font-weight', 'bold')]}
+    ]))
