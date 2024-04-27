@@ -92,9 +92,8 @@ efficient_frontier.portfolio_performance(verbose=True)
 # your budget for investing
 my_budget = 250000
 latest_prices = get_latest_prices(df)
-weights = cleaned_weights
-da = DiscreteAllocation(weights, latest_prices, total_portfolio_value=my_budget)
-allocation, leftover = da.lp_portfolio()
+da = DiscreteAllocation(cleaned_weights, latest_prices, total_portfolio_value=my_budget)
+allocation, leftover = da.greedy_portfolio()
 print("Discrete allocation:", allocation)
 print("Funds Remaining:", "$", leftover)
 
