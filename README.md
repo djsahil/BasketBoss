@@ -20,9 +20,10 @@ Analyze the fundamental factors of each company, such as earnings, revenue growt
 	- Data Analysis (DONE): Use a library like pandas for handling and analyzing the data. Calculate important financial metrics like earnings, revenue growth, debt levels, and valuation ratios. 
 	- Presentation (DONE): Present stock basket fundamental analysis (key metrics & ratios along with color gradient ranking for comparison)
 
-	Scripts:
-
+	Script:
 	fundamental_analysis.py
+
+	Jupyter Notebook:
 	fundamental_analysis_notebook.ipynb
 
 
@@ -31,20 +32,26 @@ Examine the historical performance of each stock in the basket. Calculate metric
 
 	Functionality:
 
-	- Data Analysis: With the help of the yfinance library, calculate metrics such as historical returns, volatility, and drawdowns
-	- Portfolio Optimization: 
+	- Data Analysis (DONE): With the help of the yfinance library, calculate metrics such as historical returns, volatility, and drawdowns
+	- Portfolio Optimization (DONE): 
 
-	Scripts:
-
+	Script:
 	historical_analysis_optimization.py
+
+	Jupyter Notebook:
 	historical_analysis_optimization.ipynb
 
 **3. Correlation and Diversification**
 Investigate the correlation between the stocks in the basket. Diversification is crucial for managing risk. If the stocks move in sync, diversification benefits diminish. Analyzing correlation helps in constructing a well-balanced portfolio.
 
-	TODO:
+	3rd Party Libraries:
+	[Polygon.io](https://polygon.io/blog/finding-correlation-between-stocks)
 
-	- Explore ways to determine stock correlation - [Polygon.io](https://polygon.io/blog/finding-correlation-between-stocks)
+	Script:
+	correlation_analysis_optimization.py
+
+	Jupyter Notebook:
+	historical_analysis_optimization.ipynb
 
 
 ### Trading Strategies & Signals
