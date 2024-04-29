@@ -102,6 +102,12 @@ Analyze recent news and sentiment surrounding the stocks. Market sentiment can i
 3rd Party Libraries:
 [VADER] (https://pypi.org/project/vaderSentiment/) - VADER (Valence Aware Dictionary and Sentiment Reasoner) is a lexicon and rule-based sentiment analysis api that is specifically attuned to sentiments expressed in social media.
 
+Script:
+	performance_analysis_optimization.py
+
+	Jupyter Notebook:
+	performance_analysis_optimization.ipynb
+
 ## Future Features
 - Move Stock list to config file
 - Risk Management: Assess the overall risk of the portfolio. This involves understanding the risk-return tradeoff and ensuring that the portfolio aligns with your risk tolerance and investment goals.
