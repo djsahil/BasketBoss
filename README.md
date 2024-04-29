@@ -44,7 +44,7 @@ Examine the historical performance of each stock in the basket. Calculate metric
 	historical_analysis_optimization.ipynb
 
 3rd Party Libraries:
-[PyPortfolioOpt] (https://pyportfolioopt.readthedocs.io/en/latest/MeanVariance.html)
+[PyPortfolioOpt] (https://pyportfolioopt.readthedocs.io/en/latest/UserGuide.html)
 
 **3. Correlation and Diversification**
 Investigate the correlation between the stocks in the basket. Diversification is crucial for managing risk. If the stocks move in sync, diversification benefits diminish. Analyzing correlation helps in constructing a well-balanced portfolio.
@@ -103,6 +103,7 @@ Analyze recent news and sentiment surrounding the stocks. Market sentiment can i
 [VADER] (https://pypi.org/project/vaderSentiment/) - VADER (Valence Aware Dictionary and Sentiment Reasoner) is a lexicon and rule-based sentiment analysis api that is specifically attuned to sentiments expressed in social media.
 
 ## Future Features
+- Move Stock list to config file
 - Risk Management: Assess the overall risk of the portfolio. This involves understanding the risk-return tradeoff and ensuring that the portfolio aligns with your risk tolerance and investment goals.
 - Create driver script to invoke API, first with static requests, then streaming requests for a dynamic portfolio
 - Host API from Azure or AWS serverless function, Potentially use [Flask](https://flask.palletsprojects.com/en/3.0.x/) for Web App setup.
